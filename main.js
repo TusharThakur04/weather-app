@@ -35,4 +35,10 @@ const forecast = async () => {
   weatherData(data);
 };
 
-forecast();
+// forecast();
+// const loc =
+
+const form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault;
+});

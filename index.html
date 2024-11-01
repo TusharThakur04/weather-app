@@ -10,10 +10,17 @@
   <body>
     <header>
       <h1>Weather App</h1>
-      <div class="search-box">
-        <input type="text" id="locationInput" placeholder="Enter location" />
-        <button onclick="searchWeather()">Search</button>
-      </div>
+      <form action="./index.html" method="post">
+        <div class="search-box">
+          <input
+            type="text"
+            id="locationInput"
+            placeholder="Enter location"
+            required
+          />
+          <button type="submit">Search</button>
+        </div>
+      </form>
     </header>
 
     <!-- Main content -->
