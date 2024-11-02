@@ -64,12 +64,31 @@ main {
   color: #3498db;
   margin-top: 0;
 }
+.heading {
+}
 
 /* Weekly Forecast Section */
 .weekly-forecast {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows wrapping of forecast boxes */
+}
+
+/* Centering the Weekly Report heading */
+h2 {
+  text-align: center; /* Center the text */
+  margin: 20px 0; /* Add some margin above and below */
+}
+
+/* Style for each day's forecast box */
+.day {
+  background-color: #f0f0f0; /* Light gray background */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Inner spacing */
+  margin: 10px; /* Outer spacing */
+  flex: 1 0 calc(30% - 20px); /* Flex items with three in a row */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .forecast-day {

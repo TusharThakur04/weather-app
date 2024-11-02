@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>How's the Weather</title>
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./main.js"></script>
   </head>
   <body>
     <header>
       <h1>Weather App</h1>
-      <form action="./index.html" method="post">
+      <form>
         <div class="search-box">
           <input
             type="text"
@@ -36,6 +35,8 @@
         <p>Wind Speed: <span id="todayWind"></span> km/h</p>
       </section>
 
+      <h2 class="heading">Weekly Forecast:</h2>
+
       <!-- Weekly forecast section -->
       <section class="weekly-forecast" id="weeklyForecast">
         <!-- Each day will be dynamically added here -->
@@ -46,5 +47,8 @@
     <footer>
       <p>Weather App © 2024</p>
     </footer>
+
+    <!-- Link JavaScript at the end of the body -->
+    <script src="./main.js"></script>
   </body>
 </html>

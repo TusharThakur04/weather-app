@@ -25,20 +25,45 @@ const weatherData = (data) => {
     fc.windspeed.push(e.windspeed);
   });
 
-  console.log(fc);
+  // Update today's weather on the page
+  document.getElementById("todayDate").textContent = fc.date[0];
+  document.getElementById("todayTemp").textContent = fc.temperature[0];
+  document.getElementById("todayHumidity").textContent = fc.humidity[0];
+  document.getElementById("todayUV").textContent = fc.uvindex[0];
+  document.getElementById("todayDesc").textContent = fc.desc[0];
+  document.getElementById("todayWind").textContent = fc.windspeed[0];
 
+  // Update weekly forecast on the page
+  const weeklyForecast = document.getElementById("weeklyForecast");
+  weeklyForecast.innerHTML = ""; // Clear any previous content
+
+  // Start from 1 if you want to skip today's weather
+  for (let i = 1; i < fc.date.length; i++) {
+    const dayDiv = document.createElement("div");
+    dayDiv.classList.add("day");
+
+    dayDiv.innerHTML = `
+      <p>Date: ${fc.date[i]}</p>
+      <p>Temp: ${fc.temperature[i]}°C</p>
+      <p>Humidity: ${fc.humidity[i]}%</p>
+      <p>UV Index: ${fc.uvindex[i]}</p>
+      <p>Description: ${fc.desc[i]}</p>
+      <p>Wind Speed: ${fc.windspeed[i]} km/h</p>
+    `;
+
+    weeklyForecast.appendChild(dayDiv);
+  }
   return fc;
 };
 
-const forecast = async () => {
-  const data = await weather();
+const forecast = async (location) => {
+  const data = await weather(location);
   weatherData(data);
 };
 
-// forecast();
-// const loc =
-
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
-  e.preventDefault;
+  e.preventDefault(); // Prevent default form submission
+  const loc = document.querySelector("#locationInput").value;
+  forecast(loc);
 });
